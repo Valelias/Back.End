@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor = "pink">
+<form name="Datos" method="POST" data-netlify="true" onsubmit="return validacion()">
+<p> Nombre: <input type="text" name="nombre" size="40" maxlength= "50" id ="nom1"></p>
+<p> Año de nacimiento: <input type="number" name="nacido" min="1990" max="2023" id ="naci"></p>
+<p> Estatura:<input type="text" id="est"> </p>
+<P> Sexo:
+  <input type="radio" name="hm" value="h"> Hombre
+  <input type="radio" name="hm" value="m"> Mujer
+</p>
+<p>
+  <input type="submit"  value="Enviar"> 
+  <input type="reset" value="Borrar">
+</p>
+</form>
+<script type="text/javascript">
+function validacion()
+   {
+        var valor = document.getElementById("nom1").value;
+         if(valor == null || valor.length == 0 || /^\s+$/.test(valor) )
+            {
+         
+         alert("El campo Nombre no debe estar vacio");
+             return false;
+         
+             } 
+        
+        var valor = document.getElementById("nom1").value;
+           if(/[0-9]/.test(valor)) 
+           {
+           
+               alert("El campo Nombre no debe contener Numeros");
+                   return false;
+           
+           } 
+           
+           var valor1  = document.getElementById("naci").value;      
+           if(valor1==null || valor1.length==0 || /^\s+$/.test(valor1)) 
+           {
+           
+              alert("El campo año de nacimiento no debe estar vacío");
+              return false;
+           }
+           
+           
+            
+            var valor2 = document.getElementById("est").value;
+           if(valor2== null || valor2.length ==0 || /^\s+$/.test(valor2))
+           {
+          
+              alert("El campo estatura no debe estar vacío");
+              return false;
+           }
+           
+           var valor2 = document.getElementById("est").value;
+             if(isNaN(valor2))
+           {
+        
+             alert("El campo estatura no debe contener letras");
+                return false;
+           }
+              var valor3 = document.forms["Datos"]["hm"];
+             if(valor3[0].checked == false && valor3[1].checked == false)
+           { 
+            
+            alert("Por favor escoger su sexo"); 
+              return false;
+           }
+  }
+</script>
+</body>
+</html> 
